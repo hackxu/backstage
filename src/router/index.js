@@ -16,7 +16,7 @@ class Routerdiv extends Component {
         return (
             <Router history={browserHistory}>
                 <Switch>
-                    <Route path="/login" component={loginPage}></Route>
+                    <CheckLoginRoute path="/login" component={loginPage}></CheckLoginRoute>
                     <Route exact path="/" component={() => <Redirect to="/h/"/>}></Route>
                     <Route path="/h" component={HomePageRouter}></Route>
                     <PrivateRoute component={NoMatch}></PrivateRoute>
@@ -53,13 +53,26 @@ const NoMatch = ({location}) => (
 const PrivateRoute = ({component: Component, ...rest}) => (
 
     <Route {...rest} render={props => {
-        // console.log("!")
+        console.log(props)
         return store.isLogin ? (
             <Component {...props} />
         ) : (
             <Redirect to={{
                 pathname: '/login'
             }}/>
+        )
+    }}/>
+)
+const CheckLoginRoute = ({component: Component, ...rest}) => (
+    <Route {...rest} render={props => {
+        return store.isLogin ? (
+            <Redirect to={{
+                pathname: '/h'
+            }}/>) : (
+            <Component {...props}></Component>
+            // <Redirect to={{
+            //     pathname: '/login'
+            // }}/>
         )
     }}/>
 )

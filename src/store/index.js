@@ -259,6 +259,9 @@ class BackStageData {
     }
 }
 
+const BackStageStore = new BackStageData()
+
+
 autorun((e) => {
     console.log('登入情况', BackStageStore.isLogin)
     if (BackStageStore.isLogin) {
@@ -287,6 +290,5 @@ autorun((e) => {
     }
 })
 
-const BackStageStore = new BackStageData()
 
 export default BackStageStore
