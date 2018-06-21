@@ -41,7 +41,7 @@ class HomeIndexLayout extends React.Component {
                     collapsed={this.collapsed}
                     style={{overflow: 'auto', height: '100vh', zIndex: '12', position: 'fixed', left: 0}}
                 >
-                    <div className="logo">穿藏线后台</div>
+                    <div className="logo">{store.backStageTitle}</div>
                     <CustomSiderMenuWithRouter/>
 
                 </Sider>

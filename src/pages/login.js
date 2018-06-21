@@ -38,6 +38,7 @@ class NormalLoginForm extends Component {
         return (
             <div className="loginForm">
                 <Form onSubmit={this.handleSubmit} className="login-form">
+                    <FormItem style={{textAlign: "center"}}>{store.backStageTitle}</FormItem>
                     <FormItem>
                         {getFieldDecorator('Name', {
                             rules: [{required: true, min: 3, message: '请输入账户'}],
