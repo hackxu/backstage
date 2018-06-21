@@ -124,10 +124,11 @@ class CustomSiderMenu extends React.Component {
                     store.NavList.map((item, index) =>
                         <SubMenu key={index} title={<span><Icon type={item.icon}/><span>{item.pathname}</span></span>}>
 
-                            {item.children.map((citem, cindex) =>
-                                <Menu.Item key={citem.key}><Link
-                                    to={citem.routepath}>{citem.pathname}</Link></Menu.Item>
-                            )}
+                            {item.children ?
+                                item.children.map((citem, cindex) =>
+                                    <Menu.Item key={citem.key}><Link
+                                        to={citem.routepath}>{citem.pathname}</Link></Menu.Item>
+                                ) : console.log("没有二级菜单")}
 
                         </SubMenu>
                     )}
